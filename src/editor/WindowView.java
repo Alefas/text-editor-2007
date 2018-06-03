@@ -5,9 +5,9 @@ import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
 
 /**
- * Данный класс определяет основное окно.
- * В нем также определяется метод main.
- * @author Александр Подхалюзин
+ * Р”Р°РЅРЅС‹Р№ РєР»Р°СЃСЃ РѕРїСЂРµРґРµР»СЏРµС‚ РѕСЃРЅРѕРІРЅРѕРµ РѕРєРЅРѕ.
+ * Р’ РЅРµРј С‚Р°РєР¶Рµ РѕРїСЂРµРґРµР»СЏРµС‚СЃСЏ РјРµС‚РѕРґ main.
+ * @author РђР»РµРєСЃР°РЅРґСЂ РџРѕРґС…Р°Р»СЋР·РёРЅ
  * @version 1.0
  */
 
@@ -18,7 +18,7 @@ implements AdjustmentListener{
 	public FileDialog fileDialog;
 	public Scrollbar sb, sbb;
     /**
-	 * Этот метод фиксирует события изменения полос прокрутки.
+	 * Р­С‚РѕС‚ РјРµС‚РѕРґ С„РёРєСЃРёСЂСѓРµС‚ СЃРѕР±С‹С‚РёСЏ РёР·РјРµРЅРµРЅРёСЏ РїРѕР»РѕСЃ РїСЂРѕРєСЂСѓС‚РєРё.
 	 */
 	public void adjustmentValueChanged(AdjustmentEvent e) {
 			if (e.getAdjustable()==sb)
@@ -37,8 +37,8 @@ implements AdjustmentListener{
 			}
 		}
 	/**
-	 * Конструктор.
-	 * Создает две полосы прокрутки, область для ввода текста и меню.
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ.
+	 * РЎРѕР·РґР°РµС‚ РґРІРµ РїРѕР»РѕСЃС‹ РїСЂРѕРєСЂСѓС‚РєРё, РѕР±Р»Р°СЃС‚СЊ РґР»СЏ РІРІРѕРґР° С‚РµРєСЃС‚Р° Рё РјРµРЅСЋ.
 	 */
 	public WindowView()
 	{
@@ -59,7 +59,7 @@ implements AdjustmentListener{
 		addWindowListener(new WWindowAdapter());
 
 		/**
-		 * Создание меню.
+		 * РЎРѕР·РґР°РЅРёРµ РјРµРЅСЋ.
 		 */
 		MenuBar menuBar = new MenuBar();
 		this.setMenuBar(menuBar);
@@ -85,14 +85,14 @@ implements AdjustmentListener{
 		for (int i=0; i<5; ++i) itemEdit[i].addActionListener(handler);
 	}
 	/**
-	 * Метод main. Создает окно.
-	 * @param args параметры отркрытия, в них нет необходимости
+	 * РњРµС‚РѕРґ main. РЎРѕР·РґР°РµС‚ РѕРєРЅРѕ.
+	 * @param args РїР°СЂР°РјРµС‚СЂС‹ РѕС‚СЂРєСЂС‹С‚РёСЏ, РІ РЅРёС… РЅРµС‚ РЅРµРѕР±С…РѕРґРёРјРѕСЃС‚Рё
 	 */
 	public static void main(String[] args) {
 		WindowView app=new WindowView();
 
 		/**
-		 * Установка параметров окна.
+		 * РЈСЃС‚Р°РЅРѕРІРєР° РїР°СЂР°РјРµС‚СЂРѕРІ РѕРєРЅР°.
 		 */
 		app.setSize(new Dimension(800,600));
 		app.setMaximumSize(new Dimension(100,100));

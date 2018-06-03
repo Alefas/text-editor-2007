@@ -6,9 +6,9 @@ import java.awt.font.TextAttribute;
 import java.util.*;
 
 /**
- * Компонента для отображения текста.
- * Используется для отрисовки текущего экрана.
- * @author Александр Подхалюзин
+ * РљРѕРјРїРѕРЅРµРЅС‚Р° РґР»СЏ РѕС‚РѕР±СЂР°Р¶РµРЅРёСЏ С‚РµРєСЃС‚Р°.
+ * РСЃРїРѕР»СЊР·СѓРµС‚СЃСЏ РґР»СЏ РѕС‚СЂРёСЃРѕРІРєРё С‚РµРєСѓС‰РµРіРѕ СЌРєСЂР°РЅР°.
+ * @author РђР»РµРєСЃР°РЅРґСЂ РџРѕРґС…Р°Р»СЋР·РёРЅ
  * @version 1.0
  */
 
@@ -17,12 +17,12 @@ public class TextComponent extends Panel
 	final static long serialVersionUID=1;
 
 	/**
-	 * Ссылка на родительское окно, для связи с полосами прокрутки,
-	 * которые в нем находятся.
+	 * РЎСЃС‹Р»РєР° РЅР° СЂРѕРґРёС‚РµР»СЊСЃРєРѕРµ РѕРєРЅРѕ, РґР»СЏ СЃРІСЏР·Рё СЃ РїРѕР»РѕСЃР°РјРё РїСЂРѕРєСЂСѓС‚РєРё,
+	 * РєРѕС‚РѕСЂС‹Рµ РІ РЅРµРј РЅР°С…РѕРґСЏС‚СЃСЏ.
 	 */
 	WindowView app;
 	/**
-	 * Основные параметры компоненты.
+	 * РћСЃРЅРѕРІРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјРїРѕРЅРµРЅС‚С‹.
 	 */
 	public final int height=15;
 	public final int width=9;
@@ -31,28 +31,28 @@ public class TextComponent extends Panel
 	public int numLines=25;
 	public int numTokens=72;
 	/**
-	 * Ссылка на класс, оперерующий с изменениями в тексте.
+	 * РЎСЃС‹Р»РєР° РЅР° РєР»Р°СЃСЃ, РѕРїРµСЂРµСЂСѓСЋС‰РёР№ СЃ РёР·РјРµРЅРµРЅРёСЏРјРё РІ С‚РµРєСЃС‚Рµ.
 	 */
 	public Model model;
 	/**
-	 * Шрифты.
+	 * РЁСЂРёС„С‚С‹.
 	 */
 	private Font f;
 	private Font fCursor;
 	private final int fontSize =15;
 	/**
-	 * Переменные двойной буферизации.
+	 * РџРµСЂРµРјРµРЅРЅС‹Рµ РґРІРѕР№РЅРѕР№ Р±СѓС„РµСЂРёР·Р°С†РёРё.
 	 */
 	private Graphics buffGraphics;
 	private Image buffImage;
 	private boolean buff=true;
 
 	/**
-	 * Конструктор. Определяет основные параметры компоненты.
-	 * Устанавливает связь с родительским окном.
-	 * @param xsize Ширина компоненты.
-	 * @param ysize Высота компоненты.
-	 * @param app Родительское окно.
+	 * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ. РћРїСЂРµРґРµР»СЏРµС‚ РѕСЃРЅРѕРІРЅС‹Рµ РїР°СЂР°РјРµС‚СЂС‹ РєРѕРјРїРѕРЅРµРЅС‚С‹.
+	 * РЈСЃС‚Р°РЅР°РІР»РёРІР°РµС‚ СЃРІСЏР·СЊ СЃ СЂРѕРґРёС‚РµР»СЊСЃРєРёРј РѕРєРЅРѕРј.
+	 * @param xsize РЁРёСЂРёРЅР° РєРѕРјРїРѕРЅРµРЅС‚С‹.
+	 * @param ysize Р’С‹СЃРѕС‚Р° РєРѕРјРїРѕРЅРµРЅС‚С‹.
+	 * @param app Р РѕРґРёС‚РµР»СЊСЃРєРѕРµ РѕРєРЅРѕ.
 	 */
 	public TextComponent(int xsize,int ysize,WindowView app)
 	{
@@ -62,14 +62,14 @@ public class TextComponent extends Panel
 		setBackground(Color.black);
 		setVisible(true);
 		/**
-		 * Добавление адаптеров для прослушивания событий.
+		 * Р”РѕР±Р°РІР»РµРЅРёРµ Р°РґР°РїС‚РµСЂРѕРІ РґР»СЏ РїСЂРѕСЃР»СѓС€РёРІР°РЅРёСЏ СЃРѕР±С‹С‚РёР№.
 		 */
 		addMouseListener(new WMouseAdapter(this));
 		addMouseMotionListener(new WMouseAdapter(this));
 		addMouseWheelListener(new WMouseAdapter(this));
 		addKeyListener(new WKeyAdapter(this));
 		/**
-		 * Для возможоности использовать табуляцию.
+		 * Р”Р»СЏ РІРѕР·РјРѕР¶РѕРЅРѕСЃС‚Рё РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ С‚Р°Р±СѓР»СЏС†РёСЋ.
 		 */
 		setFocusTraversalKeysEnabled(false);
 
@@ -77,7 +77,7 @@ public class TextComponent extends Panel
 		numTokens=(xsize-2*left)/width;
 		model = new Model(this);
 		/**
-		 * Создание шрифтов
+		 * РЎРѕР·РґР°РЅРёРµ С€СЂРёС„С‚РѕРІ
 		 */
 		f=new Font("Monospaced",Font.PLAIN, fontSize);
 		Hashtable<TextAttribute, Object> map = new Hashtable<TextAttribute, Object>();
@@ -89,7 +89,7 @@ public class TextComponent extends Panel
 	public void paint(Graphics g)
 	{
 		/**
-		 * Изменения положений ползунков на полосах прокрутки.
+		 * РР·РјРµРЅРµРЅРёСЏ РїРѕР»РѕР¶РµРЅРёР№ РїРѕР»Р·СѓРЅРєРѕРІ РЅР° РїРѕР»РѕСЃР°С… РїСЂРѕРєСЂСѓС‚РєРё.
 		 */
 		app.sb.setMinimum(0);
 		app.sb.setMaximum(Math.max(0,model.getLinesSize()+1-numLines));
@@ -98,7 +98,7 @@ public class TextComponent extends Panel
 		app.sbb.setMaximum(Math.max(0,model.getMaxX()+1-numTokens));
 		app.sbb.setValue(model.getPosX());
 		/**
-		 * Установка переменных буферезации. Просходит только один раз.
+		 * РЈСЃС‚Р°РЅРѕРІРєР° РїРµСЂРµРјРµРЅРЅС‹С… Р±СѓС„РµСЂРµР·Р°С†РёРё. РџСЂРѕСЃС…РѕРґРёС‚ С‚РѕР»СЊРєРѕ РѕРґРёРЅ СЂР°Р·.
 		 */
 		if (buff)
 		{
@@ -109,7 +109,7 @@ public class TextComponent extends Panel
 			buff=false;
 		}
 		/**
-		 * Отрисовка экрана.
+		 * РћС‚СЂРёСЃРѕРІРєР° СЌРєСЂР°РЅР°.
 		 */
 		buffGraphics.setColor(Color.black);
 		buffGraphics.fillRect(0, 0, getSize().width, getSize().height);
@@ -118,36 +118,36 @@ public class TextComponent extends Panel
 			{
 				switch (model.fonts[i][j])
 				{
-				case '0': //Основной шрифт
+				case '0': //РћСЃРЅРѕРІРЅРѕР№ С€СЂРёС„С‚
 					buffGraphics.setColor(Color.white);
 					break;
-				case '1': //Подсветка ключевых слов
+				case '1': //РџРѕРґСЃРІРµС‚РєР° РєР»СЋС‡РµРІС‹С… СЃР»РѕРІ
 					buffGraphics.setColor(Color.cyan);
 					break;
-				case '2': //Подсветка комментариев
+				case '2': //РџРѕРґСЃРІРµС‚РєР° РєРѕРјРјРµРЅС‚Р°СЂРёРµРІ
 					buffGraphics.setColor(Color.green);
 					break;
-				case '3': //Шрифт курсора
+				case '3': //РЁСЂРёС„С‚ РєСѓСЂСЃРѕСЂР°
 					buffGraphics.setColor(Color.red);
                     buffGraphics.drawLine(j*width+left,(i)*height+top+3,j*width+left,(i-1)*height+top+3);
 					break;
-				case '4': //Шрифт выделенной области
+				case '4': //РЁСЂРёС„С‚ РІС‹РґРµР»РµРЅРЅРѕР№ РѕР±Р»Р°СЃС‚Рё
 					buffGraphics.setColor(Color.blue);
 					buffGraphics.fillRect((j)*width+left, (i)*height, width, height);
 					buffGraphics.setColor(Color.white);
 					break;
-				case '5': //Если курсор часть выделенной области                              
+				case '5': //Р•СЃР»Рё РєСѓСЂСЃРѕСЂ С‡Р°СЃС‚СЊ РІС‹РґРµР»РµРЅРЅРѕР№ РѕР±Р»Р°СЃС‚Рё                              
                     buffGraphics.setColor(Color.blue);
 					buffGraphics.fillRect((j)*width+left, (i)*height, width, height);
                     buffGraphics.setColor(Color.red);
                     buffGraphics.drawLine(j*width+left,(i)*height+top+3,j*width+left,(i-1)*height+top+3);
 					break;
-				case '6': //Курсор при нажатой клавише Ins
+				case '6': //РљСѓСЂСЃРѕСЂ РїСЂРё РЅР°Р¶Р°С‚РѕР№ РєР»Р°РІРёС€Рµ Ins
 					buffGraphics.setColor(Color.red);
 					buffGraphics.fillRect((j)*width+left, (i)*height, width, height);
 					buffGraphics.setColor(Color.white);
 					break;
-				case '7': //Подсветка строковых и символьных литералов
+				case '7': //РџРѕРґСЃРІРµС‚РєР° СЃС‚СЂРѕРєРѕРІС‹С… Рё СЃРёРјРІРѕР»СЊРЅС‹С… Р»РёС‚РµСЂР°Р»РѕРІ
 					buffGraphics.setColor(Color.magenta);
 					break;
 				}
@@ -158,7 +158,7 @@ public class TextComponent extends Panel
 		g.drawImage(buffImage,0,0,this);
 	}
 	/**
-	 * Метод для сглаживания перерисовки.
+	 * РњРµС‚РѕРґ РґР»СЏ СЃРіР»Р°Р¶РёРІР°РЅРёСЏ РїРµСЂРµСЂРёСЃРѕРІРєРё.
 	 */
 	public void update(Graphics g)
 	{

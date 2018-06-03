@@ -58,7 +58,13 @@
     <option name="MAXIMUM_HEAP_SIZE" value="128" />
   </component>
   <component name="Encoding">
-    <file url="PROJECT" charset="windows-1251" />
+    <file url="file://$PROJECT_DIR$/src/editor/Model.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/TextComponent.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/WKeyAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/WMenuHandler.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/WMouseAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/WWindowAdapter.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/editor/WindowView.java" charset="UTF-8" />
   </component>
   <component name="IdProvider" IDEtalkID="7A61B85D8C48F458144AA87C0C7FFBCD" />
   <component name="InspectionProjectProfileManager">
